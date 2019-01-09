@@ -1,0 +1,53 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /sell
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.3.9:3306/sell?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    
+  redis:
+    host: 192.168.3.9
+    port: 6379
+    
+wechat:
+  mpAppId: wxd898fcb01713c658
+  mpAppSecret: 47ccc303338cee6e62894fxxxxxxxxxxx
+  openAppId: wx6ad144e54af67d87
+  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+  mchId: 1483469312
+  mchKey: 06C56A89949D617xxxxxxxxxxx
+  keyPath: /var/weixin_cert/h5.p12
+  notifyUrl: http://sell.natapp4.cc/sell/pay/notify
+  templateId:
+    orderStatus: e-Cqq67QxD6YNI41iRiqawEYdFavW_7pc7LyEMb-yeQ
+    
+project-url:
+  wechatMpAuthorize: http://sell.natapp4.cc
+  wechatOpenAuthorize: http://sell.natapp4.cc
+  sell: http://sell.natapp4.cc
+  
+logging:
+  level: 
+    com.kwin.sell.sell.model.mapper: trace #打印该目录下sql日志
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+# json不显示为空字段   
+#  jackson:
+#    default-property-inclusion: non_null
+    
+#logging:
+#  pattern:#    console: "%d - %msg%n" # 日期，日志信息，换行
+#  path: /var/log/tomcat/   # 日志输出路径
+#  file: /var/log/tomcat/sell.log
+#  level: #    root: DEBUG#    com.kwin.sell.SellApplicationTests: debug
